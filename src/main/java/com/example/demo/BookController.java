@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,13 @@ public class BookController {
 
     @GetMapping
     public List<Book> get() {
-        return repository.findAll();
+    	 List<Book> list = repository.findAll();
+    	 Book book = new Book();
+    	 book.withId(45);
+    	 book.withName("Lary Sherokee" + new Date().toLocaleString());
+    	 list.add(book);
+    	 
+        return list;
     }
 
     @PostMapping

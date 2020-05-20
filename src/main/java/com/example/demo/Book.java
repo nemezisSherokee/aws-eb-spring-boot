@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.util.UUID;
 
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -19,4 +18,12 @@ public class Book {
     private int id;
 
     private String name;
+
+	public void withId(int i) {
+		this.id = id;
+	}
+
+	public void withName(String string) {
+		this.name = string;
+	}
 }
