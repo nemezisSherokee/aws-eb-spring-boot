@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +15,8 @@ public class BookController {
         this.repository = repository;
     }
 
-    @GetMapping
+    @SuppressWarnings("deprecation")
+	@GetMapping
     public List<Book> get() {
     	 List<Book> list = repository.findAll();
     	 Book book = new Book();
@@ -28,7 +28,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity post(@RequestBody Book request) {
+    public ResponseEntity<?> post(@RequestBody Book request) {
         repository.save(request);
         return ResponseEntity.ok().build();
     }
